@@ -4,3 +4,4 @@ node_modules
 *.zip
 k8s
 public
+.env
