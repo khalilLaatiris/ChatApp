@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Notification Service API
+  version: 1.0.0
+paths:
+  /notifications:
+    post:
+      summary: Send a notification to a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            properties:
+              user:
+                type: string
+                description: The user to send the notification to
+              message:
+                type: string
+                description: The message to send
+      responses:
+        '201':
+          description: Notification sent
+        '500':
+          description: Server error
+  /notifications/{user}:
+    get:
+      summary: Get all notifications for a user
+      parameters:
+        - in: path
+          name: user
+          required: true
+          schema:
+            type: string
+          description: The user to get notifications for
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user:
+                      type: string
+                    message:
+                      type: string
+                    timestamp:
+                      type: string
+                      format: date-time
+        '500':
+          description: Server error

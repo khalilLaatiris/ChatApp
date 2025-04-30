@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+        - name: auth-service
+          image: auth-service:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: JWT_SECRET
+              value: 15b4c200d92fe602ec4880fa14897607f08a9a464572b8d3bf132d678f4d235eabfa4d7e5ea8e1e3d33af7deb6173b3f312ea96cd8c564aad78da1fd3fa675f3b3b3fa1d7ff17503b6216b89d5ca8bcb658edd7d90220a473b74ba497b5f95078a3bc382e5540f75f4752723716dba4c608f502a9713eb7e35aba53b99cf4aa7e8bcfe52e7b3a6448012deb46b6bd24b89b27e03058a0f3ca30d95d72ba830609366053873e826cafef8cc39fd73bf36eab56eecaebea01513ac579d278cf3d66962239b3f1721bb95e1db77458aaa3489523ff4ddddf2caf108278bbafcaee707a053522b255f62aa2d04272b66f9176ffa251ad0fde955d8e6d00497c0d23f
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+spec:
+  selector:
+    app: auth-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer

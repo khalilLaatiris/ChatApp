@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Chat Service API
+  version: 1.0.0
+paths:
+  /messages:
+    get:
+      summary: Get all chat messages
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user:
+                      type: string
+                    message:
+                      type: string
+                    timestamp:
+                      type: string
+                      format: date-time
