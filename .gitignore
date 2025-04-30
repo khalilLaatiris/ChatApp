@@ -2,3 +2,5 @@ node_modules
 *.log
 *.db
 *.zip
+k8s
+public
