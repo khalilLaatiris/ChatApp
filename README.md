@@ -1,6 +1,6 @@
 # Chat Application
 
-## descriptionof key concept :
+## Description of key concept :
 The real-time chat room system leverages a microservices architecture to enable secure, scalable group communication. Built on existing project services:
 
 1. **Core Functionality**: Chat Service (port 3001) uses Socket.IO for instant message broadcasting to all connected users. Messages persist in SQLite with Redis pub/sub for efficient distribution, ensuring real-time synchronization across clients.
@@ -19,7 +19,7 @@ The real-time chat room system leverages a microservices architecture to enable 
 
 ## Service Interaction Flow
 
-[Placeholder for Service Interaction Flow](img/temp_image_1746471362360.png)
+![Placeholder for Service Interaction Flow](img/temp_image_1746471362360.png)
 
 ## Quickstart Guide
 
